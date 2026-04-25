@@ -1,16 +1,27 @@
-# 这是一个示例 Python 脚本。
-
-# 按 Shift+F10 执行或将其替换为您的代码。
-# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
+from model.graph import Graph
+from ui.map_drawer import MapDrawer
 
 
-def print_hi(name):
-    # 在下面的代码行中使用断点来调试脚本。
-    print(f'Hi, {name}')  # 按 Ctrl+F8 切换断点。
+def main():
+    print("=" * 50)
+    print("      数据结构课程设计 - 导航系统")
+    print("=" * 50)
+
+    print("\n正在生成地图...")
+    graph = Graph()
+    graph.generate_random(n=150, k=4)  # 150个点效果更好
+    print(f"✓ 生成完成: {graph}")
+
+    print("\n启动图形界面...")
+    print("提示:")
+    print("  - 左键点击地图: 选择起点")
+    print("  - 右键点击地图: 选择终点")
+    print("  - 鼠标滚轮: 缩放地图")
+    print("  - 右侧面板: 输入顶点编号或使用按钮")
+
+    drawer = MapDrawer(graph)
+    drawer.show()
 
 
-# 按装订区域中的绿色按钮以运行脚本。
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
+if __name__ == "__main__":
+    main()
