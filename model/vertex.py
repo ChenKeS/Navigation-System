@@ -16,5 +16,18 @@ class Vertex:
         dy = self.y - other.y
         return (dx * dx + dy * dy) ** 0.5
 
+    def to_dict(self) -> dict:
+        """转换为字典，用于保存"""
+        return {
+            'vid': self.vid,
+            'x': self.x,
+            'y': self.y
+        }
+
+    @staticmethod
+    def from_dict(data: dict) -> 'Vertex':
+        """从字典创建顶点"""
+        return Vertex(data['vid'], data['x'], data['y'])
+
     def __repr__(self):
         return f"Vertex({self.vid} , {self.x:.2f} , {self.y:.2f})"
